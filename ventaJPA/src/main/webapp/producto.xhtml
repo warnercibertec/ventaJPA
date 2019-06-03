@@ -1,0 +1,71 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      template="/WEB-INF/plantillas/plantilla.xhtml"> 
+
+<ui:define name="contenido">
+	<f:event type="preRenderView" listener="#{productoBean.listar()}" />
+	<h1>REGISTRAR PRODUCTO</h1>
+	<h:form id="formProducto" >
+		<p:commandButton value="NUEVO" oncomplete="PF('popupModificar').show();" actionListener="#{productoBean.setAccion('REGISTRAR')}" update=":popupModificar"/>
+		<p:commandButton value="LISTAR" actionListener="#{productoBean.listar()}" update="data"/>
+		
+		<p:dataTable id="data" value="#{productoBean.lstProducto}" var="item" paginator="true" rows="5">
+			<p:column headerText="NOMBRE">
+				<p:outputLabel value="#{item.nombre}"/>
+			</p:column>
+			<p:column headerText="Precio">
+				<p:outputLabel value="S/." />
+				<p:outputLabel value="#{item.precio}" />
+			</p:column>
+			<p:column headerText="Cantidad">
+				<p:outputLabel value="#{item.cantidad}"/>
+			</p:column>
+			<p:column headerText="Empresa">
+				<p:outputLabel value="#{item.empresa}"/>
+			</p:column>
+			<p:column headerText="MODIFICAR">
+				<p:commandLink value="MODIFICAR" actionListener="#{productoBean.obtenerProducto(item)}" 
+							oncomplete="PF('popupModificar').show();" update=":popupModificar"/>
+			</p:column>
+			<p:column headerText="ELIMINAR">
+				<p:commandLink value="ELIMINAR" actionListener="#{productoBean.eliminar(item)}" 
+							 update="data"/>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+	
+	<p:dialog header="Datos Producto" widgetVar="popupModificar" id="popupModificar" modal="true" width="50%" showEffect="explode" hideEffect="explode" height="250">
+		<h:form id="form" >
+			<p:panel id="panel">
+			<p:messages id="msgError" style="color:red" autoUpdate="true" />
+			    <h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel for="txtNombre" value="Nombre" />
+					<p:inputText id="txtNombre" value="#{productoBean.producto.nombre}" maxlength="20" required="true" requiredMessage="nombre es requerido" />
+
+					<p:outputLabel for="txtPrecio" value="Precio" />
+					<p:inputText id="txtPrecio" value="#{productoBean.producto.precio}"  maxlength="20" required="true" requiredMessage="Precio es requerido"/>
+					
+					<p:outputLabel for="txtCantidad" value="Cantidad" />
+					<p:inputText id="txtCantidad" value="#{productoBean.producto.cantidad}" maxlength="20" required="true" requiredMessage="Cantidad es requerido"/>
+					
+					<p:outputLabel for="txtEmpresa" value="Empresa" />
+					<p:inputText id="txtEmpresa" value="#{productoBean.producto.empresa}" maxlength="15" required="true" requiredMessage="Empresa es requerido"/>
+		        </h:panelGrid>
+		    </p:panel>
+		    <p:toolbar>
+		        <f:facet name="left">
+					<p:commandButton value="#{productoBean.accion}" actionListener="#{productoBean.operar()}" 
+								oncomplete="if (!args.validationFailed) PF('popupModificar').hide();" update=":formProducto:data, panel" 
+								/>
+					<p:commandButton value="CANCELAR" immediate="true" oncomplete="PF('popupModificar').hide();"/>
+		        </f:facet>
+		    </p:toolbar>
+		</h:form>
+	</p:dialog>
+	
+</ui:define>
+	
+</ui:composition>

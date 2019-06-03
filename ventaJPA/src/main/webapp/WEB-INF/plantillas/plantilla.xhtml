@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<f:view locale="#{idiomaBean.locale}">
+<h:head>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" href="//www.tottus.com.pe/static/2261a//css/site/store.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="//www.tottus.com.pe/static/2261a//css/site/store-pe.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="//www.tottus.com.pe/static/2261a//css/site/bootstrap-icon.css" type="text/css" media="screen"/>
+	
+<style>
+.fondo {background-color: #7B241C;}
+#menu{
+	background-color: #FDFEFE;
+}
+.menuItem {
+	
+}
+.jumbotron{
+	background: #428BCA
+}
+#tabMenu{
+background-color: #7B241C;
+}
+
+</style>
+</h:head>
+<body>
+	<div id="menu" height="100">
+		<p:tabMenu activeIndex="#{param.i}" id="tabMenu">
+		    <p:menuitem value="Home" outcome="index" icon="pi pi-star" styleClass="menuItem">
+		        <f:param name="i" value="0" />
+		    </p:menuitem>
+		    <p:menuitem value="Persona" outcome="persona" icon="pi pi-search">
+		        <f:param name="i" value="1" />
+		    </p:menuitem>
+		    <p:menuitem value="Producto" outcome="producto" icon="pi pi-file">
+		        <f:param name="i" value="2" />
+		    </p:menuitem>
+		</p:tabMenu>
+	</div>
+	<section class="jumbotron">
+		<div class="container">
+			<h1>SISTEMA DE VENTAS</h1>
+			<p>blog de diseño web</p>
+		</div>
+	</section>
+	
+	
+	<div id="contenido">
+		<ui:insert name="contenido" />
+	</div>
+	<hr />
+	
+	
+	
+	
+<footer class="fondo">
+
+
+        <div class="container">
+            <div class="row hidden-xs footer-desktop">
+                <div class="col-md-2 col-sm-4 fter-col">
+                    <ul class="fter-list-menu">
+                        <li><h4>Nuestra Empresa</h4></li>
+			            <li><a href="#">Nuestras Tiendas</a></li>
+			            <li><a href="#">Privacidad y seguridad</a></li>
+			            <li><a href="#">Política de Tratamiento de Datos Personales</a></li>
+			            <li><a href="#">Términos y Condiciones</a></li>
+			            <li><a href="#">Legales</a></li>
+			            <li><a href="#" target="_blank">Portal de proveedores</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-4 fter-col">
+                    <ul class="fter-list-menu">
+                        <li><h4></h4></li>
+                        <!--<li><a href="/tottus/campaigns">Campa&ntilde;as y concursos</a></li>-->
+                        <!--<li><a href="/tottus/productstottus">Productos Tottus</a></li>-->
+                        <li><a href="#">Venta Empresa</a></li>
+                        <li><a href="#" target="_blank">Únete a nosotros</a></li>
+                        <li><a href="#">¿Quienes Somos?</a></li>
+                        <li><a href="#" target="_blank">Reporte de Sostenibilidad</a></li>
+                        <li><a href="#" target="_blank">Canal de Integridad</a></li>
+                        <li><span data-toggle="modal" data-target="#suscribe" style="width:20px; height: 10px; color: #78b800; display:block;"></span></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-4 fter-col">
+                    <ul class="fter-list-menu">
+                        <li><h4>Nuestros Servicios</h4></li>
+                        <li><a href="#">Compra de terrenos</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                          <li><a href="#" target="_blank">Mis Comprobantes Electrónicos</a></li>
+                          <li><a href="#" target="_blank">Responde nuestra encuesta</a></li>                                      
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-6 fter-col clear-lg" style="height: 140px;">
+                    <ul class="fter-list-menu">
+                        <li><h4>Comunícate con nosotros</h4></li>
+                        <li><a href="https://www.tottus.com.pe/tottus/contactus">Escríbenos</a></li>
+                        
+                        <li>Conoce nuestras redes sociales
+                            <ul class="social-icons">
+                                <li><a href="#" target="_blank"><i class="fa fa-facebook-official fa-2x"></i></a> </li>
+                                <li><a href="#" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a> </li>
+                                <li><a href="#" target="_blank"><i class="fa fa-youtube-play fa-2x"></i></a> </li>
+                            </ul>
+                        </li>
+                        <li><a href="tel:+5115133355" style="color: yellow;">Call Center: 513-3355</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-6 fter-col">
+                    <ul class="fter-list-menu">
+                        
+                        <li style="float:left;margin-top:5px;"><a href="https://www.tottus.com.pe/tottus/claimform" style="text-transform: uppercase;font-weight: bold;text-decoration: underline;"><img src="https://www.tottus.com.pe/static/img/claim.png" alt="" style="margin-right:5px;"/>Libro de Reclamaciones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row footer-sm-divices">
+                <div class="col-sm-12 col-xs-12 text-center padd-bott-20" style="border-bottom: 1px solid #fff">
+                    <i class="fa fa-phone fa-2x call-us"></i>
+                    <div class="call-us"><a href="tel:+5115133355"><big>Llamanos al: <strong>513-3355</strong></big></a></div>
+                </div>
+                <div class="col-sm-6 col-xs-6 padd-top-20">
+                    <ul class="fter-list-menu">
+                        <li><a href="#">Nuestras Tiendas</a></li>
+                        <li><a href="#">Privacidad y Seguridad</a></li>
+                        <li><a href="#">Terminos y Condiciones</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-xs-6  padd-top-20">
+                    <ul class="fter-list-menu">
+                    <li><a href="#" target="_blank">Responde nuestra encuesta</a></li>
+                        
+                        <li style="float:left;margin-top:5px;"><a href="#" style="text-decoration: underline;"><img src="https://www.tottus.com.pe/static/img/claim.png" alt="" style="margin-right:5px;"/>Libro de Reclamaciones</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-12 col-xs-12 text-center padd-top-20 footer-social-icons">
+                    <a href="https://www.facebook.com/TottusPeru/" target="_blank">
+                        <span class="fa-stack fa-2x">
+                            <i class="fa fa-circle fa-stack-2x blue"></i>
+                            <i class="fa fa-facebook fa-stack-1x white"></i>
+                        </span>
+                    </a>
+                    <a href="https://twitter.com/tottusperu" target="_blank">
+                        <span class="fa-stack fa-2x">
+                            <i class="fa fa-circle fa-stack-2x sky"></i>
+                            <i class="fa fa-twitter fa-stack-1x white"></i>
+                        </span>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</f:view>
+</html>

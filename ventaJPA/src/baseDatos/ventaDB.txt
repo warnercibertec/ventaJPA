@@ -1,0 +1,25 @@
+
+CREATE SCHEMA `ventadb` ;
+
+
+CREATE TABLE `ventadb`.`persona` (
+  `codigo` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(20) NOT NULL,
+  `apePaterno` VARCHAR(20) NOT NULL,
+  `apeMaterno` VARCHAR(20) NOT NULL,
+  `numDocumento` VARCHAR(15) NOT NULL,
+  `fecNacimiento` DATE NULL,
+  `numCelular` VARCHAR(10) NULL,
+  `correo` VARCHAR(30) NULL,
+  `sexo` VARCHAR(45) NULL,
+  PRIMARY KEY (`codigo`));
+
+
+
+CREATE TABLE `ventadb`.`producto` (
+  `codigo` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NULL,
+  `precio` DECIMAL(10,2) NULL,
+  `cantidad` INT(100) NULL,
+  `empresa` VARCHAR(30) NULL,
+  PRIMARY KEY (`codigo`));
